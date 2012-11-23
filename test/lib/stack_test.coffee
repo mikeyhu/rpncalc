@@ -11,5 +11,19 @@ describe 'A stack', ->
 		s = stack.createStack()
 		s.push(1)
 		assert.deepEqual(s.all(),[1])
+	it 'an item pushed to the stack should be peekable', ->
+		s = stack.createStack()
+		s.push(1)
+		s.push(2)
+		s.peek().should.equal(2)
+	it 'an item pushed to the stack should be popable as an array', ->
+		s = stack.createStack()
+		s.push(1)
+		s.push(2)
+		s.push(3)
+		assert.deepEqual(s.pop(2),[3,2])
+		assert.deepEqual(s.pop(2),[1])
+	
+
 
 

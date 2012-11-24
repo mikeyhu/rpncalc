@@ -10,9 +10,7 @@ exports.createCalculator = () ->
 
 	add:() ->
 		v=@mem.pop(2)
-		result=v[0]+v[1]
-		@mem.push(result)
-		result
+		@mem.push(v[0]+v[1])
 	minus:() ->
 		v=@mem.pop(2)
 		@mem.push(v[1]-v[0])
@@ -29,8 +27,9 @@ exports.createCalculator = () ->
 			when "-" then @minus()
 			when "/" then @divide()
 			when "*" then @multiply()
-			else @push(+element)
+			else @push(element)
 
 	parse:(data) ->
 		@input(element) for element in data.split(" ")
+		@mem.peek()
 

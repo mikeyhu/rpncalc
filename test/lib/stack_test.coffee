@@ -11,6 +11,12 @@ describe 'A stack', ->
 		s = stack.createStack()
 		s.push(1)
 		assert.deepEqual(s.all(),[1])
+	it 'should be able to have items added to it and the whole of the stack should be viewable', ->
+		s = stack.createStack()
+		s.push(1)
+		s.push(2)
+		s.push(3)
+		assert.deepEqual(s.all(),[3,2,1])
 	it 'an item pushed to the stack should be peekable', ->
 		s = stack.createStack()
 		s.push(1)

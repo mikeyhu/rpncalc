@@ -47,5 +47,30 @@ describe 'An rpn calculator', ->
 		c.push(5)
 		c.push(2)
 		c.divide().should.equal(2.5)
+	it 'should be able to parse a + into an add', ->
+		c = calc.createCalculator()
+		c.push(5)
+		c.push(2)
+		c.input("+").should.equal(7)
+	it 'should be able to parse a - into an minus', ->
+		c = calc.createCalculator()
+		c.push(5)
+		c.push(2)
+		c.input("-").should.equal(3)
+	it 'should be able to parse a / into an divide', ->
+		c = calc.createCalculator()
+		c.push(5)
+		c.push(2)
+		c.input("/").should.equal(2.5)
+	it 'should be able to parse a * into an multiply', ->
+		c = calc.createCalculator()
+		c.push(5)
+		c.push(2)
+		c.input("*").should.equal(10)
+	it 'should be able to parse a string of numbers', ->
+		c = calc.createCalculator()
+		c.parse("3 2")
+		assert.deepEqual(c.stack(),[2,3])
+
 
 	

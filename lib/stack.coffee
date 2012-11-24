@@ -4,7 +4,7 @@ exports.createStack = () ->
 		@items.unshift(value)
 		value
 	all:() ->
-		@items.reverse()
+		@items
 	peek:() ->
 		@items[0]
 	pop:(num) ->

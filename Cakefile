@@ -10,6 +10,7 @@ task "test", "run tests", ->
     --require coffee-script 
     --colors
     --recursive
+    -R spec
   ", (err, output) ->
     throw err if err
     console.log output

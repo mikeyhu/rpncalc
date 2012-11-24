@@ -36,10 +36,21 @@ describe 'A stack', ->
 		throwsException =
 			try
 		 		s.pop(2)
-		 		"b".should.equal("d")
 		 		false
 			catch err
-				true
+				console.log err
+				if err==stack.TO_FEW_ON_STACK then true
+				else false
+		throwsException.should.equal(true)
+	it 'pushing a string onto the stack should throw an exception', ->
+		s = stack.createStack()
+		throwsException =
+			try
+		 		s.push("a")
+		 		false
+			catch err
+				if err==stack.INVALID_NUMERIC then true
+				else false
 		throwsException.should.equal(true)
 	it 'should be able to have an item added to it and should return the value', ->
 		s = stack.createStack()

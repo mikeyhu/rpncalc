@@ -1,1 +1,3 @@
-rpnnode.coffee
+stack = require './lib/stack.coffee'
+
+

@@ -21,9 +21,24 @@ describe 'A stack', ->
 		s.push(1)
 		s.push(2)
 		s.push(3)
-		assert.deepEqual(s.pop(2),[3,2])
-		assert.deepEqual(s.pop(2),[1])
-	
+		s.push(4)
+		assert.deepEqual(s.pop(2),[4,3])
+		assert.deepEqual(s.pop(1),[2])
+	it 'popping more items on the stack than available should throw an exception', ->
+		s = stack.createStack()
+		s.push(1)
+		throwsException =
+			try
+		 		s.pop(2)
+		 		"b".should.equal("d")
+		 		false
+			catch err
+				true
+		throwsException.should.equal(true)
+	it 'should be able to have an item added to it and should return the value', ->
+		s = stack.createStack()
+		s.push(10).should.equal(10)
+
 
 
 

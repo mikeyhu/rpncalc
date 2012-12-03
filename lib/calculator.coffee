@@ -7,19 +7,17 @@ exports.createCalculator = () ->
 		@mem.push(value)
 	stack:() ->
 		@mem.all()
-
+	applyFunction:(num,fun) ->
+		v=@mem.pop(num)
+		@mem.push(fun(v))
 	add:() ->
-		v=@mem.pop(2)
-		@mem.push(v[0]+v[1])
+		@applyFunction(2,(v) -> v[0]+v[1])
 	minus:() ->
-		v=@mem.pop(2)
-		@mem.push(v[1]-v[0])
+		@applyFunction(2,(v) -> v[1]-v[0])	
 	multiply:() ->
-		v=@mem.pop(2)
-		@mem.push(v[1]*v[0])
+		@applyFunction(2,(v) -> v[1]*v[0])
 	divide:() ->
-		v=@mem.pop(2)
-		@mem.push(v[1]/v[0])
+		@applyFunction(2,(v) -> v[1]/v[0])
 
 	input:(element) ->
 		switch element

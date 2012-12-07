@@ -78,6 +78,9 @@ describe 'An rpn calculator', ->
 		c = calc.createCalculator()
 		c.parse("7 3 2 + *").should.equal(35)
 		assert.deepEqual(c.stack(),[35])
-
+	it 'should be able to parse a string of numbers and functions without spaces', ->
+		c = calc.createCalculator()
+		c.parse("7 3+").should.equal(10)
+		
 
 	

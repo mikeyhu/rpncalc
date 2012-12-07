@@ -1,4 +1,5 @@
 stack = require './stack.coffee'
+tokeniser = require './tokeniser.coffee'
 
 exports.createCalculator = () ->
 	mem: stack.createStack()
@@ -13,7 +14,7 @@ exports.createCalculator = () ->
 	add:() ->
 		@applyFunction(2,(v) -> v[0]+v[1])
 	minus:() ->
-		@applyFunction(2,(v) -> v[1]-v[0])	
+		@applyFunction(2,(v) -> v[1]-v[0])
 	multiply:() ->
 		@applyFunction(2,(v) -> v[1]*v[0])
 	divide:() ->
@@ -28,6 +29,12 @@ exports.createCalculator = () ->
 			else @push(element)
 
 	parse:(data) ->
-		@input(element) for element in data.split(" ")
+#		@input(element) for element in data.split(" ")
+#		@mem.peek()
+		t = tokeniser.createTokeniser(data)
+		while t.hasNext()
+			@input(t.next())
 		@mem.peek()
+
+
 

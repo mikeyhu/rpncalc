@@ -4,6 +4,9 @@ exports.createStack = () ->
 		if isNaN parseFloat(value) then throw exports.INVALID_NUMERIC
 		@items.unshift(parseFloat(value))
 		value
+	pushString:(value) ->
+		@items.unshift(value)
+		value
 	all:() ->
 		@items
 	peek:() ->

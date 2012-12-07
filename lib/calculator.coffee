@@ -34,5 +34,17 @@ exports.createCalculator = () ->
 			@input(t.next())
 		@mem.peek()
 
+	convertToken:(element) ->
+		if isNaN parseFloat(element) 
+			v=@mem.pop(2)
+			@mem.pushString("#{v[1]} + #{v[0]}")
+		else
+			@mem.push(element)
+
+	convert:(data) ->
+		t = tokeniser.createTokeniser(data)
+		while t.hasNext()
+			@convertToken(t.next())
+		@mem.peek()
 
 

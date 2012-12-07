@@ -37,7 +37,7 @@ exports.createCalculator = () ->
 	convertToken:(element) ->
 		if isNaN parseFloat(element) 
 			v=@mem.pop(2)
-			@mem.pushString("#{v[1]} + #{v[0]}")
+			@mem.pushString("(#{v[1]} #{element} #{v[0]})")
 		else
 			@mem.push(element)
 

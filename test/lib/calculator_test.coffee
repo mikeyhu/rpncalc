@@ -84,15 +84,18 @@ describe 'An rpn calculator', ->
 	it 'should be able to convert a set of inputs into braceted algebra', ->
 		c = calc.createCalculator()
 		c.convert("7 3 +")
-		assert.deepEqual(c.stack(),["7 + 3"])
+		assert.deepEqual(c.stack(),["(7 + 3)"])
 	it 'should be able to convert a token into a algebraic string', ->
 		c = calc.createCalculator()
 		c.push(3)
 		c.push(4)
-		c.convertToken("+").should.equal("3 + 4")
+		c.convertToken("+").should.equal("(3 + 4)")
 	it 'should be able to convert a single input into a single output', ->
 		c = calc.createCalculator()
 		c.convert("5").should.equal(5)
-		
+	it 'should be able to convert a more complex input with multiple functions into a single bracketed output', ->
+		c = calc.createCalculator()
+		c.convert("4 5* 3+").should.equal("((4 * 5) + 3)")
+	
 
 	

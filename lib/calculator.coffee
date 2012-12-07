@@ -29,8 +29,6 @@ exports.createCalculator = () ->
 			else @push(element)
 
 	parse:(data) ->
-#		@input(element) for element in data.split(" ")
-#		@mem.peek()
 		t = tokeniser.createTokeniser(data)
 		while t.hasNext()
 			@input(t.next())

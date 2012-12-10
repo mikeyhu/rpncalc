@@ -14,3 +14,8 @@ task "test", "run tests", ->
   ", (err, output) ->
     throw err if err
     console.log output
+
+task "package", "package all files", ->
+  exec "coffee --join rpnode-package.js --compile lib/*.coffee", (err, output) ->
+    throw err if err
+    console.log output

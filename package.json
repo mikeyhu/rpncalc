@@ -1,0 +1,11 @@
+{
+  "name": "rpnode",
+  "version": "0.0.1a",
+  "author": "Mike Hughes",
+  "dependencies" : {
+  },
+  "devDependencies": {
+    "should"    :  "1.2.x"
+  }
+}
+

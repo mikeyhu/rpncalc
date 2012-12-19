@@ -1,7 +1,9 @@
-exports.createStack = () ->
+stack = exports? and exports or @stack = {}
+
+stack.createStack = () ->
 	items:[]
 	push:(value) ->
-		if isNaN parseFloat(value) then throw exports.INVALID_NUMERIC
+		if isNaN parseFloat(value) then throw stack.INVALID_NUMERIC
 		@items.unshift(parseFloat(value))
 		value
 	pushString:(value) ->
@@ -12,9 +14,9 @@ exports.createStack = () ->
 	peek:() ->
 		@items[0]
 	pop:(num) ->
-		if @items.length < num then throw exports.TO_FEW_ON_STACK
+		if @items.length < num then throw stack.TO_FEW_ON_STACK
 		@items.splice(0,num)
 
-exports.TO_FEW_ON_STACK = "toFewOnStack"
-exports.INVALID_NUMERIC = "invalidNumeric"
+stack.TO_FEW_ON_STACK = "toFewOnStack"
+stack.INVALID_NUMERIC = "invalidNumeric"
 

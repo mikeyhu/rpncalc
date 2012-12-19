@@ -1,8 +1,10 @@
-stack = require './stack.coffee'
-tokeniser = require './tokeniser.coffee'
-mathfun = require './mathfunctions.coffee'
+if (require?) 
+	stack = require './stack.coffee'
+	tokeniser = require './tokeniser.coffee'
+	mathfun = require './mathfunctions.coffee'
+calculator = exports? and exports or @calculator = {}
 
-exports.createCalculator = () ->
+calculator.createCalculator = () ->
 	mem: stack.createStack()
 
 	push:(value) ->

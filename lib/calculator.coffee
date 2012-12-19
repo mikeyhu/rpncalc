@@ -12,11 +12,11 @@ calculator.createCalculator = () ->
 	stack:() ->
 		@mem.all()
 	applyFunction:(functionInfo) ->
-		v=@mem.pop(functionInfo.arg)
-		@mem.push(functionInfo.fun(v))
+		v=@mem.pop functionInfo.arg
+		@mem.push functionInfo.fun(v)
 	input:(element) ->
 		if isNaN parseFloat(element) then @applyFunction(mathfun.lookup(element))
-		else @push(element)
+		else @mem.push element
 	parse:(data) ->
 		t = tokeniser.createTokeniser(data)
 		while t.hasNext()

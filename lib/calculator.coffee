@@ -1,6 +1,6 @@
 stack = require './stack.coffee'
 tokeniser = require './tokeniser.coffee'
-mathfunctions = require './mathfunctions.coffee'
+mathfun = require './mathfunctions.coffee'
 
 exports.createCalculator = () ->
 	mem: stack.createStack()
@@ -9,13 +9,11 @@ exports.createCalculator = () ->
 		@mem.push(value)
 	stack:() ->
 		@mem.all()
-	applyFunction:(num,fun) ->
-		v=@mem.pop(num)
-		@mem.push(fun(v))
+	applyFunction:(functionInfo) ->
+		v=@mem.pop(functionInfo.arg)
+		@mem.push(functionInfo.fun(v))
 	input:(element) ->
-		if isNaN parseFloat(element)
-			t = mathfunctions.lookup(element)
-			@applyFunction(t.arg, t.fun)
+		if isNaN parseFloat(element) then @applyFunction(mathfun.lookup(element))
 		else @push(element)
 	parse:(data) ->
 		t = tokeniser.createTokeniser(data)

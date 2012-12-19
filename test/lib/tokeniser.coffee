@@ -23,3 +23,8 @@ describe 'a tokeniser',() ->
 		t.next()
 		t.hasNext().should.equal(true)
 		t.next().should.equal('+')
+	it 'should be able to delimit on a divide symbol', ->
+		t =tokeniser.createTokeniser('123/')
+		t.next()
+		t.hasNext().should.equal(true)
+		t.next().should.equal('/')

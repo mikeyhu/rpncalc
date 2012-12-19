@@ -76,6 +76,9 @@ describe 'An rpn calculator', ->
 	it 'should be able to parse a string of numbers and functions without spaces', ->
 		c = calc.createCalculator()
 		c.parse("7 3+").should.equal(10)
+	it 'should be able to parse a string of numbers and functions including the /', ->
+		c = calc.createCalculator()
+		c.parse("8 4/").should.equal(2)
 	it 'should be able to convert a set of inputs into braceted algebra', ->
 		c = calc.createCalculator()
 		c.convert("7 3 +")

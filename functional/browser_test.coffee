@@ -31,6 +31,7 @@ describe 'Inputting some functions', () ->
 		assert.equal this.browser.success,true
 		this.browser.fill("inputNotation","5 3 -")
 		this.browser.pressButton "submit", () =>
+			assert.equal(this.browser.field("#inputNotation").value,"")
 			assert.equal(this.browser.text("#outputNotation"),"5 3 - = 2")
 
 

@@ -35,6 +35,6 @@ task "functional", "run functional tests", ->
     console.log output
 
 task "package", "package all files", ->
-  exec "coffee --join public/rpnode-package.js --compile lib/*.coffee rpnode.coffee", (err, output) ->
+  exec "coffee --join public/rpnode-package.js --compile lib/*.coffee client/*.coffee", (err, output) ->
     throw err if err
     console.log output

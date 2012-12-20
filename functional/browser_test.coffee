@@ -1,4 +1,4 @@
-helper = require './helper.coffee'
+helper = require '../server/server.coffee'
 Browser = require 'zombie'
 assert = require 'assert'
 

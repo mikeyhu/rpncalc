@@ -1,11 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
 		<script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script language="javascript" src="rpncalc-package.js"></script>
+		<link href="rpncalc.css" rel="stylesheet">
 	</head>
 	<body>
-		<input type="text" id="inputNotation" name="inputNotation"/>
-		<input type="button" id="submit" name="submit" value="calculate!"/>
+		<h1>RPN Calculator</h1>
+		<form id="entry" onsubmit="return false;">
+			<input type="text" id="inputNotation" name="inputNotation"/>
+			<input type="button" id="submit" name="submit" value="calculate!"/>
+		</form>
 		<div id="outputNotation" name="outputNotation"></div>
 	</body>
 </html>

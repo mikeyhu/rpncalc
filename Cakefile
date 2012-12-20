@@ -2,6 +2,11 @@
 
 REPORTER = "min"
 
+task "dev", "compile then run the server", ->
+  invoke "package"
+  exec "coffee server/server.coffee"
+  console.log "running server, use CTRL-c to quit"
+
 task "test", "run all tests", ->
   invoke "unit"
   invoke "package"

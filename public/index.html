@@ -1,16 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-		<script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script language="javascript" src="rpncalc-package.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="rpncalc-package.js"></script>
 		<link href="rpncalc.css" rel="stylesheet">
 	</head>
 	<body>
 		<h1>RPN Calculator</h1>
-		<form id="entry" onsubmit="return false;">
-			<input type="text" id="inputNotation" name="inputNotation"/>
-			<input type="button" id="submit" name="submit" value="calculate!"/>
+		<form id="inputArea" onsubmit="return false;" class="box">
+			<input type="text" id="inputText" name="inputText"/>
+			<input type="button" id="calculate" name="calculate" value="calculate!"/>
 		</form>
-		<div id="outputNotation" name="outputNotation"></div>
+		<div id="outputArea" name="outputArea" class="box"></div>
 	</body>
 </html>

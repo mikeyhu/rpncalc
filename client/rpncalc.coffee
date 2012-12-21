@@ -1,12 +1,14 @@
 $(document).ready () ->
-	$("#submit").on "click", calculate
-	$("#inputNotation").pressEnter calculate
+	$("#calculate").on "click", calculate
+	$("#inputText").pressEnter calculate
 
 calculate = () ->
 	c = calculator.createCalculator()
-	inData = $("#inputNotation").attr("value")
-	$("#inputNotation").attr("value","")
-	$("#outputNotation").text(inData + " = " + c.parse(inData))	
+	inData = $("#inputText").attr("value")
+	$("#inputText").attr("value","")
+	c.parse(inData)
+	$("#outputArea").text("$$" + c.display() + " = " + c.answer() + "$$")
+	MathJax.Hub.Queue(["Typeset",MathJax.Hub,"outputArea"])	
 
 $.fn.pressEnter = (fn) ->
 	this.each () ->

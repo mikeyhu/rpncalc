@@ -53,11 +53,11 @@ describe 'A stack', ->
 				else false
 		throwsException.should.equal(true)
 	it 'should be able to have an item added to it and should return the value', ->
-		s = stack.createStack()
-		s.push(10).should.equal(10)
+		s = stack.createStack(false)
+		s.push("10").should.equal("10")
 	it 'should be possible to push a string onto a stack', ->
-		s = stack.createStack()
-		s.pushString("5 + 4").should.equal("5 + 4")
+		s = stack.createStack(false)
+		s.push("5 + 4").should.equal("5 + 4")
 		assert.deepEqual(s.pop(1),["5 + 4"])
 
 

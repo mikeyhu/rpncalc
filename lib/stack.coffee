@@ -3,8 +3,10 @@ stack = exports? and exports or @stack = {}
 stack.createStack = (numeric = true) ->
 	items:[]
 	push:(value) ->
-		if numeric and isNaN parseFloat(value) then throw stack.INVALID_NUMERIC
-		@items.unshift if numeric then parseFloat(value) else value
+		if numeric
+			value = parseFloat value
+			if isNaN value then throw stack.INVALID_NUMERIC
+		@items.unshift value
 		value
 	all:() ->
 		@items

@@ -1,4 +1,4 @@
-if (require?) 
+if require?
 	stack = require './stack.coffee'
 	tokeniser = require './tokeniser.coffee'
 	mathfun = require './mathfunctions.coffee'
@@ -9,28 +9,23 @@ calculator.createCalculator = () ->
 	dis: stack.createStack(false)
 
 	push:(value) ->
-		@mem.push(value)
-		@dis.push(value)
-	stack:() ->
-		@mem.all()
-	applyFunction:(values,arg,fun) ->
-		v=values.pop arg
-		values.push fun(v)
+		@mem.push value
+		@dis.push value
+	stack:() -> @mem.all()
+	applyFunction:(values,arg,fun) -> values.push fun(values.pop arg)
 	input:(element) ->
-		if isNaN parseFloat(element)
-			tokenInfo = mathfun.lookup(element)
-			@applyFunction(@dis,tokenInfo.arg,tokenInfo.latex)
-			@applyFunction(@mem,tokenInfo.arg,tokenInfo.fun)
+		tokenInfo = mathfun.lookup(element)
+		if tokenInfo?
+			@applyFunction @dis,tokenInfo.arg,tokenInfo.latex
+			@applyFunction @mem,tokenInfo.arg,tokenInfo.fun
 		else @push element
 	parse:(data) ->
 		t = tokeniser.createTokeniser(data)
 		while t.hasNext()
-			@input(t.next())
+			@input t.next()
 		@mem.peek()
-	display:() ->
-		@dis.peek()
-	answer:() ->
-		@mem.peek()
+	display:() -> @dis.peek()
+	answer:() -> @mem.peek()
 
 
 

@@ -11,7 +11,7 @@ calculate = () ->
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub,"outputArea"])	
 
 $.fn.pressEnter = (fn) ->
-	this.each () ->
-		$(this).bind('enterPress', fn)
-		$(this).keyup (e) ->
-			if(e.keyCode == 13) then $(this).trigger("enterPress")
+	@each () ->
+		$(@).bind('enterPress', fn)
+		$(@).keyup (e) ->
+			if(e.keyCode == 13) then $(@).trigger("enterPress")

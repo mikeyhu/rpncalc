@@ -28,7 +28,7 @@ describe 'A stack', ->
 		s.push(2)
 		s.push(3)
 		s.push(4)
-		assert.deepEqual(s.pop(2),[4,3])
+		assert.deepEqual(s.pop(2),[3,4])
 		assert.deepEqual(s.pop(1),[2])
 	it 'popping more items on the stack than available should throw an exception', ->
 		s = stack.createStack()

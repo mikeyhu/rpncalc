@@ -5,18 +5,18 @@ mathfun.lookup = (token) -> (arg for ex,arg of mathfun.FUNCTIONS when ex is toke
 mathfun.FUNCTIONS =
 	'+' : 
 		arg:2
-		fun:(d) 	-> d[1] + d[0]
-		latex:(d) 	-> "#{d[1]}+#{d[0]}"
+		fun:(d) 	-> d[0] + d[1]
+		latex:(d) 	-> "#{d[0]}+#{d[1]}"
 	'-' :
 		arg:2
-		fun:(d) 	-> d[1] - d[0]
-		latex:(d)	-> "#{d[1]}-#{d[0]}"
+		fun:(d) 	-> d[0] - d[1]
+		latex:(d)	-> "#{d[0]}-#{d[1]}"
 	'*' : 
 		arg:2
-		fun:(d) 	-> d[1] * d[0]
-		latex:(d) 	-> "#{d[1]}\\times#{d[0]}"
+		fun:(d) 	-> d[0] * d[1]
+		latex:(d) 	-> "#{d[0]}\\times#{d[1]}"
 	'/' : 
 		arg:2
-		fun:(d) 	-> d[1] / d[0]
-		latex:(d) 	-> "\\frac{#{d[1]}}{#{d[0]}}"
+		fun:(d) 	-> d[0] / d[1]
+		latex:(d) 	-> "\\frac{#{d[0]}}{#{d[1]}}"
 

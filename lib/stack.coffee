@@ -8,13 +8,11 @@ stack.createStack = (numeric = true) ->
 			if isNaN value then throw stack.INVALID_NUMERIC
 		@items.unshift value
 		value
-	all:() ->
-		@items
-	peek:() ->
-		@items[0]
+	all:() -> @items
+	peek:() -> @items[0]
 	pop:(num) ->
 		if @items.length < num then throw stack.TO_FEW_ON_STACK
-		@items.splice(0,num)
+		@items.splice(0,num).reverse()
 
 stack.TO_FEW_ON_STACK = "toFewOnStack"
 stack.INVALID_NUMERIC = "invalidNumeric"

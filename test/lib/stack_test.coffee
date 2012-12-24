@@ -1,22 +1,21 @@
-require 'should'
-assert = require 'assert'
+should = require 'should'
 stack = require '../../lib/stack.coffee'
 
 
 describe 'A stack', ->
 	it 'should be able to return the whole stack', ->
 		s = stack.createStack()
-		assert.deepEqual(s.all(),[])
+		s.all().should.eql([])
 	it 'should be able to have an item added to it and viewed', ->
 		s = stack.createStack()
 		s.push(1)
-		assert.deepEqual(s.all(),[1])
+		s.all().should.eql([1])
 	it 'should be able to have items added to it and the whole of the stack should be viewable', ->
 		s = stack.createStack()
 		s.push(1)
 		s.push(2)
 		s.push(3)
-		assert.deepEqual(s.all(),[3,2,1])
+		s.all().should.eql([3,2,1])
 	it 'an item pushed to the stack should be peekable', ->
 		s = stack.createStack()
 		s.push(1)
@@ -28,8 +27,8 @@ describe 'A stack', ->
 		s.push(2)
 		s.push(3)
 		s.push(4)
-		assert.deepEqual(s.pop(2),[3,4])
-		assert.deepEqual(s.pop(1),[2])
+		s.pop(2).should.eql([3,4])
+		s.pop(1).should.eql([2])
 	it 'popping more items on the stack than available should throw an exception', ->
 		s = stack.createStack()
 		s.push(1)
@@ -58,7 +57,7 @@ describe 'A stack', ->
 	it 'should be possible to push a string onto a stack', ->
 		s = stack.createStack(false)
 		s.push("5 + 4").should.equal("5 + 4")
-		assert.deepEqual(s.pop(1),["5 + 4"])
+		s.pop(1).should.eql(["5 + 4"])
 
 
 

@@ -1,6 +1,5 @@
 helper = require '../server/server.coffee'
 Browser = require 'zombie'
-assert = require 'assert'
 should = require 'should'
 
 url = "http://localhost:3000/index.html"
@@ -11,8 +10,8 @@ describe 'Requesting the index', () ->
 		@browser.visit(url).then(done, done)
 
 	it 'should load the index page', (done) ->
-		this.browser.success.should.equal(true)
-		assert.ok this.browser.query("#inputText")
+		@browser.success.should.equal true
+		should.exist this.browser.query("#inputText")
 		done()
 
 describe 'Inputting some functions', () ->
@@ -21,7 +20,7 @@ describe 'Inputting some functions', () ->
 		@browser.visit(url).then(done, done)
 
 	it 'should get an answer', (done) ->
-		assert.equal @browser.success,true
+		@browser.success.should.equal true
 		@browser.fill("inputText","1 2+")
 		@browser.field("#inputText").value.should.equal("1 2+")
 		@browser.pressButton "calculate", () =>
@@ -29,7 +28,7 @@ describe 'Inputting some functions', () ->
 			done()
 
 	it 'should be able to continue to get answers', (done) ->
-		assert.equal @browser.success,true
+		@browser.success.should.equal true
 		@browser.fill("inputText","5 3 -")
 		@browser.pressButton "calculate", () =>
 			@browser.field("#inputText").value.should.equal("")

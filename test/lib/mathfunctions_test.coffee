@@ -1,5 +1,4 @@
 require 'should'
-assert = require 'assert'
 math = require '../../lib/mathfunctions.coffee'
 describe 'Mathfunctions', ->
 	it 'should be able to lookup a function and find the number of elements it applies to', ->

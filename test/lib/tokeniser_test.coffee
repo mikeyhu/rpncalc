@@ -1,5 +1,4 @@
 require 'should'
-assert = require 'assert'
 tokeniser = require '../../lib/tokeniser.coffee'
 
 describe 'a tokeniser',() ->
